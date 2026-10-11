@@ -1,0 +1,41 @@
+{
+    "target_co": {
+        "model_name": "XGBoost",
+        "transform": "Log",
+        "config": 2
+    },
+    "target_no2": {
+        "model_name": "XGBoost",
+        "transform": "Log",
+        "config": 2
+    },
+    "target_o3": {
+        "model_name": "Random Forest",
+        "transform": "Log",
+        "config": 4
+    },
+    "target_pm10": {
+        "model_name": "Random Forest",
+        "transform": "Log",
+        "config": 4
+    },
+    "target_pm25": {
+        "model_name": "Random Forest",
+        "transform": "Original",
+        "config": 5
+    },
+    "target_so2": {
+        "model_name": "Gradient Boosting + Persistence",
+        "transform": "Original",
+        "config": 2,
+        "components": {
+            "gradient_boosting": "so2_model.joblib",
+            "persistence_feature": "so2"
+        },
+        "weights": {
+            "gradient_boosting": 0.75,
+            "persistence": 0.25
+        },
+        "forecast_horizon": "next_hour"
+    }
+}
